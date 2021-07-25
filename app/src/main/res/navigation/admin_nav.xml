@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021. rogergcc
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav"
+    app:startDestination="@id/adminhome">
+
+    <fragment
+        android:id="@+id/adminhome"
+        android:name="com.appsnipp.education.ui.menucourses.CoursesStaggedFragment"
+        android:label="home"
+        tools:layout="@layout/fragment_courses_stagged" />
+</navigation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021. rogergcc
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_nav"
+    app:startDestination="@id/teacherHome">
+
+    <fragment
+        android:id="@+id/teacherHome"
+        android:name="com.appsnipp.education.ui.menusearch.MatchesCoursesFragment"
+        android:label="home"
+        tools:layout="@layout/fragment_matches_courses" />
+</navigation>
