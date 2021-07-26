@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021. rogergcc
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.menucourses.AdminViewFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation=".1dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fileNameAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/normalPadding"
+                android:layout_marginTop="@dimen/top_text_card"
+                android:layout_marginRight="@dimen/normalPadding"
+                android:fontFamily="@font/bariol_bold"
+                android:text="@string/title_topic_course"
+                android:textColor="@color/darkTextColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/FileSubjectAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/normalPadding"
+                android:layout_marginTop="@dimen/top_text_subtitle_card"
+                android:layout_marginRight="@dimen/normalPadding"
+                android:fontFamily="@font/bariol_bold"
+                android:text="subject name"
+                android:textColor="@color/dashboard_subtitle"
+                android:textSize="@dimen/d_number_courses" />
+
+            <TextView
+                android:id="@+id/FileTeacherAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/normalPadding"
+                android:layout_marginRight="@dimen/normalPadding"
+                android:fontFamily="@font/bariol_bold"
+                android:text="teacher"
+                android:textColor="@color/dashboard_subtitle"
+                android:textSize="@dimen/d_number_courses" />
+
+            <TextView
+                android:id="@+id/FileDateAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/normalPadding"
+                android:layout_marginRight="@dimen/normalPadding"
+                android:layout_marginBottom="@dimen/normalPadding"
+                android:fontFamily="@font/bariol_bold"
+                android:text="date"
+                android:textColor="@color/dashboard_subtitle"
+                android:textSize="@dimen/d_number_courses" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_item2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation=".1dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sliderMark">
+
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/pdfView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <SeekBar
+        android:id="@+id/sliderMark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:padding="16dp"
+        android:progress="23"
+        app:layout_constraintEnd_toStartOf="@+id/btnMarks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_item" />
+
+    <Button
+        android:id="@+id/btnMarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="update marks"
+        app:layout_constraintBottom_toBottomOf="@+id/sliderMark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sliderMark" />
+
+    <TextView
+        android:id="@+id/textMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/sliderMark"
+        app:layout_constraintTop_toTopOf="@+id/sliderMark" />
+</androidx.constraintlayout.widget.ConstraintLayout>

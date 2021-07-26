@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/teacherHome"
-        android:name="com.appsnipp.education.ui.menusearch.MatchesCoursesFragment"
+        android:name="com.appsnipp.education.ui.menusearch.TeacherUploadFragment"
         android:label="home"
         tools:layout="@layout/fragment_matches_courses" />
 </navigation>

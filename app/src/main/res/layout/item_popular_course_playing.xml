@@ -2,54 +2,64 @@
   ~ Copyright (c) 2020. rogergcc
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/container_search"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:gravity="center_vertical">
+
+
+    <TextView
+        android:id="@+id/upload"
+        style="@style/viewParent.headerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/bariol_regular"
+        android:text="Upload a file"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/uploadtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bariol_regular"
+        android:text="Click here to upload"
+        android:textColor="@color/bottomNavigationTextColor"
+        app:layout_constraintStart_toStartOf="@+id/upload"
+        app:layout_constraintTop_toBottomOf="@+id/upload" />
+
 
     <ImageView
 
+        android:id="@+id/btnUpload"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_marginTop="@dimen/top_text_subtitle_card"
-        android:layout_marginEnd="@dimen/top_text_subtitle_card"
-        android:layout_marginBottom="@dimen/top_text_subtitle_card"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:adjustViewBounds="true"
         android:background="@drawable/result_card"
         android:padding="12dp"
-        android:src="@drawable/ic_baseline_cloud_upload_24" />
+        android:src="@drawable/ic_baseline_cloud_upload_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/nav_header_vertical_spacing"
-
-
-        android:orientation="vertical">
-
-        <TextView
-            style="@style/viewParent.headerText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/bariol_regular"
-            android:text="Upload a file"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/bariol_regular"
-            android:text="Click here to upload"
-            android:textColor="@color/bottomNavigationTextColor" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:background="@color/nav_bar_color" />
-    </LinearLayout>
-</LinearLayout>
+    <EditText
+        android:id="@+id/editSubjectName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Enter Subject Name"
+        android:textColor="#C2185B"
+        android:textColorHint="#512DA8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnUpload"
+        app:layout_constraintStart_toStartOf="@+id/uploadtext"
+        app:layout_constraintTop_toBottomOf="@+id/uploadtext" />
+</androidx.constraintlayout.widget.ConstraintLayout>

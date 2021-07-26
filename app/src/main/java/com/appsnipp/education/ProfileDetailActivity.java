@@ -33,6 +33,7 @@ public class ProfileDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         uid = auth.getCurrentUser().getUid();
         int userType = getIntent().getIntExtra("userType", 0);
+        Toast.makeText(this, String.valueOf(userType), Toast.LENGTH_SHORT).show();
         if (userType == 1) {
             showStudent();
         }

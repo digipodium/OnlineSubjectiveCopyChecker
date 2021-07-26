@@ -10,7 +10,23 @@
 
     <fragment
         android:id="@+id/adminhome"
-        android:name="com.appsnipp.education.ui.menucourses.CoursesStaggedFragment"
+        android:name="com.appsnipp.education.ui.menucourses.AdminFragment"
         android:label="home"
-        tools:layout="@layout/fragment_courses_stagged" />
+        tools:layout="@layout/fragment_courses_stagged">
+        <action
+            android:id="@+id/action_adminhome_to_adminViewFragment"
+            app:destination="@id/adminViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminViewFragment"
+        android:name="com.appsnipp.education.ui.menucourses.AdminViewFragment"
+        android:label="fragment_admin_view"
+        tools:layout="@layout/fragment_admin_view">
+        <action
+            android:id="@+id/action_adminViewFragment_to_adminhome"
+            app:destination="@id/adminhome" />
+        <argument
+            android:name="pdf"
+            app:argType="com.appsnipp.education.ui.model.Pdf" />
+    </fragment>
 </navigation>

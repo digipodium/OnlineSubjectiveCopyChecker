@@ -8,7 +8,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Request implements Parcelable {
-    public String student;
     public String sid;
     public String pdfName;
     public String message;
@@ -16,15 +15,13 @@ public class Request implements Parcelable {
     public Request() {
     }
 
-    public Request(String student, String sid, String pdfName, String message) {
-        this.student = student;
+    public Request(String sid, String pdfName, String message) {
         this.sid = sid;
         this.pdfName = pdfName;
         this.message = message;
     }
 
     protected Request(Parcel in) {
-        student = in.readString();
         sid = in.readString();
         pdfName = in.readString();
         message = in.readString();
@@ -37,7 +34,6 @@ public class Request implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(student);
         dest.writeString(sid);
         dest.writeString(pdfName);
         dest.writeString(message);

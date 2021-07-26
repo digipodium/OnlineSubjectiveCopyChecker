@@ -9,15 +9,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.menucourses.CoursesStaggedFragment">
+    tools:context=".ui.menucourses.AdminFragment">
 
     <androidx.core.widget.NestedScrollView
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="#ffba60"
-        >
+        android:background="#ffba60">
 
 
         <LinearLayout
@@ -48,7 +47,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_weight="40"
                     android:fontFamily="@font/bariol_bold"
-                    android:text="Upload Files from Teachers"
+                    android:text="Uploaded Files from Teachers"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="30sp">
 
@@ -65,44 +64,14 @@
                 </ImageView>
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/edt_search"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:digits="0,1,2,3,4,5,6,7,8,9,*,qwertzuiopasdfghjklyxcvbnm"
-
-                android:maxLines="1"
-                android:singleLine="true"
-
+            <TextView
+                android:id="@+id/textSignOutAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/horizontal_dashboard"
-
-                android:layout_marginTop="@dimen/normalPadding"
-                android:layout_marginRight="@dimen/horizontal_dashboard"
-
-                android:background="@drawable/container_search"
-                android:drawableStart="@drawable/ic_search_black_24dp"
-
-
-
-                android:drawablePadding="@dimen/drawable_left"
-                android:fontFamily="@font/bariol_regular"
-
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/normalPadding"
-                android:paddingTop="@dimen/vertical_search"
-                android:paddingRight="@dimen/normalPadding"
-                android:paddingBottom="@dimen/vertical_search"
-
-                android:hint="Search Here"
-                android:textColorHint="@color/frutorial_title"
-                android:textColor="@color/colorPrimaryDark"
-
-                android:textSize="14sp">
-
-            </EditText>
+                android:padding="12dp"
+                android:text="Sign Out"
+                android:textAlignment="textEnd"
+                android:textColor="#303F9F" />
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.menusearch.MatchesCoursesFragment">
+    tools:context=".ui.menusearch.TeacherUploadFragment">
 
     <androidx.core.widget.NestedScrollView
 
@@ -27,7 +27,15 @@
 
 
             <TextView
-                android:id="@+id/tv_find_title"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textInfo"
                 style="@style/viewParent.headerText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -49,40 +57,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/filesUploaded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normalPadding"
-                android:layout_marginBottom="@dimen/normalPadding"
-                android:text="10 course available"
+                android:text="files available"
                 android:textColor="@color/contentTextColor"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_find_title" />
+                app:layout_constraintTop_toBottomOf="@+id/textInfo" />
 
-            <!--            <com.yarolegovich.discretescrollview.DiscreteScrollView-->
-            <!--                android:id="@+id/item_picker"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="@dimen/normalPadding"-->
-            <!--                android:layout_marginBottom="@dimen/normalPadding"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/textView3"-->
-            <!--                tools:listitem="@layout/item_shop_card" />-->
-            <!--            &lt;!&ndash; orientation is optional, default is horizontal &ndash;&gt;-->
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/view_pager"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/normalPadding"
-                android:clipToPadding="false"
-                android:overScrollMode="never"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <LinearLayout
 
@@ -95,7 +78,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_pager">
+                app:layout_constraintTop_toBottomOf="@+id/filesUploaded">
 
 
                 <RelativeLayout
@@ -108,27 +91,39 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/activity_horizontal_margin"
                         android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                        android:text="Popular Courses" />
+                        android:text="Upload Student Question Paper" />
 
-                    <TextView
-                        style="@style/viewParent.headerText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="@dimen/activity_horizontal_margin"
-                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                        android:text=". ." />
                 </RelativeLayout>
 
-                <include layout="@layout/item_popular_course_playing" />
+                <include
+                    android:id="@+id/upload_area"
+                    layout="@layout/item_popular_course_playing" />
 
-                <include layout="@layout/item_popular_course" />
+                <ProgressBar
+                    android:id="@+id/pb"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-                <include layout="@layout/item_popular_course" />
-
-                <include layout="@layout/item_popular_course" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/uploadRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_popular_course" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textSignOutTeacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Sign Out"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#303F9F"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

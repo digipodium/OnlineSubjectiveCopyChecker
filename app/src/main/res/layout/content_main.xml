@@ -159,11 +159,11 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <include layout="@layout/card_popular_courses" />
+                    <include layout="@layout/card_student_files" />
 
-                    <include layout="@layout/card_popular_courses" />
+                    <include layout="@layout/card_student_files" />
 
-                    <include layout="@layout/card_popular_courses" />
+                    <include layout="@layout/card_student_files" />
 
                 </LinearLayout>
             </HorizontalScrollView>

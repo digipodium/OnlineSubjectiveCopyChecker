@@ -6,7 +6,6 @@ package com.appsnipp.education;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.appsnipp.education.databinding.ActivityLoginBinding;
 import com.appsnipp.education.ui.model.Profile;
-import com.appsnipp.education.ui.model.Student;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -41,13 +39,12 @@ public class LoginActivity extends AppCompatActivity {
             String username = binding.register.editName.getText().toString().trim();
             String password = binding.register.editPassword.getText().toString().trim();
             String usertype = "student";
-            switch (binding.register.userType.getCheckedRadioButtonId()) {
-                case R.id.teacher:
-                    usertype = "teacher";
-                    userInt = 0;
-                case R.id.student:
-                    usertype = "student";
-                    userInt = 1;
+            if (binding.register.teacher.isChecked()) {
+                usertype = "teacher";
+                userInt = 0;
+            } else if (binding.register.student.isChecked()) {
+                usertype = "student";
+                userInt = 1;
             }
 
             String finalUsertype = usertype;
@@ -87,14 +84,14 @@ public class LoginActivity extends AppCompatActivity {
                     db.collection(Constants.PROFILE).document(uid).get().addOnSuccessListener(documentSnapshot -> {
                         Profile profile = documentSnapshot.toObject(Profile.class);
                         if (profile.uid.equals(uid)) {
-                            if (profile.usertype.equals("teacher")) {
+                            if (profile.usertype.equals("teacher") && finalUserType.equals("teacher")) {
                                 moveToTeacherDashboard();
-                            } else {
+                            } else if (profile.usertype.equals("student") && finalUserType.equals("student")) {
                                 moveToStudentDashboard();
+                            } else {
+                                auth.signOut();
+                                Utils.showDialog(this, "wrong user type selected", "Your account is not of correct usertype", "ok");
                             }
-                        } else {
-                            auth.signOut();
-                            Utils.showDialog(this, "wrong user type selected", "Your account is not of correct usertype", "ok");
                         }
                     }).addOnFailureListener(e -> {
                         Utils.showDialog(this, "Invalid credentails", "email and password do not match the database", "retry");
