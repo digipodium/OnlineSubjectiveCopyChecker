@@ -4,6 +4,8 @@
 
 package com.appsnipp.education.ui.menusearch;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -35,8 +37,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 
 public class TeacherUploadFragment extends Fragment {
@@ -126,7 +126,7 @@ public class TeacherUploadFragment extends Fragment {
                             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                             Date date = new Date();
                             String subject = bind.uploadArea.editSubjectName.getText().toString().toLowerCase();
-                            if (subject.length() > 0) {
+                            if (subject.length() == 0) {
                                 subject = "N/A";
                             }
                             Pdf data = new Pdf(uri.toString(), filename, uid, profile.username, formatter.format(date), "N/A", subject, false);

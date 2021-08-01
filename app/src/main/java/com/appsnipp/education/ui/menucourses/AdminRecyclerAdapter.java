@@ -57,7 +57,8 @@ public class AdminRecyclerAdapter extends RecyclerView.Adapter<AdminRecyclerAdap
             super(itemView);
             bind = ItemCardBinding.bind(itemView);
             bind.getRoot().setOnClickListener(view -> {
-                AdminFragmentDirections.ActionAdminhomeToAdminViewFragment dir = AdminFragmentDirections.actionAdminhomeToAdminViewFragment(pdfList.get(getAdapterPosition()));
+                Pdf pdf = pdfList.get(getAdapterPosition());
+                AdminFragmentDirections.ActionAdminhomeToAdminViewFragment dir = AdminFragmentDirections.actionAdminhomeToAdminViewFragment(pdf);
                 NavHostFragment.findNavController(fragment).navigate(dir);
 
             });

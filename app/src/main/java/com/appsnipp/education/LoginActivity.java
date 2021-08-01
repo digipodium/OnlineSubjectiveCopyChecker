@@ -5,18 +5,21 @@
 package com.appsnipp.education;
 
 
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.appsnipp.education.databinding.ActivityLoginBinding;
 import com.appsnipp.education.ui.model.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -60,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
             binding.flipper.setDisplayedChild(1);
         });
 
+        binding.login.textPasswordForgot.setOnClickListener(view -> {
+            showForgotDiaglog();
+        });
         binding.login.cirLoginButton.setOnClickListener(view -> {
             String email = binding.login.editUserEmail.getText().toString().trim();
             String password = binding.login.editUserPassword.getText().toString().trim();
@@ -67,10 +73,10 @@ public class LoginActivity extends AppCompatActivity {
             if (binding.login.teacher.isChecked()) {
                 userType = "teacher";
                 userInt = 0;
-            }else if(binding.login.student.isChecked()){
+            } else if (binding.login.student.isChecked()) {
                 userType = "student";
                 userInt = 1;
-            }else if(binding.login.admin.isChecked()){
+            } else if (binding.login.admin.isChecked()) {
                 userType = "admin";
                 userInt = 2;
             }
@@ -80,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (finalUserType.equals("admin")) {
                     moveToAdminDashboard();
-                }else{
+                } else {
                     db.collection(Constants.PROFILE).document(uid).get().addOnSuccessListener(documentSnapshot -> {
                         Profile profile = documentSnapshot.toObject(Profile.class);
                         if (profile.uid.equals(uid)) {
@@ -109,6 +115,30 @@ public class LoginActivity extends AppCompatActivity {
         binding.iconQuit.setOnClickListener(view -> {
             finish();
         });
+
+    }
+
+    private void showForgotDiaglog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Have you forgotten your password ");
+
+        // set the custom layout
+        final View customLayout = getLayoutInflater().inflate(R.layout.forgot_dialog, null);
+        builder.setView(customLayout);
+
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            EditText editText = customLayout.findViewById(R.id.editEmail);
+            String email = editText.getText().toString();
+            auth.sendPasswordResetEmail(email).addOnFailureListener(e -> {
+                Utils.showDialog(this, "Error", "Your email is not registered to any account", "ok");
+            }).addOnSuccessListener(unused -> {
+                Utils.showDialog(this, "Success", "We have sent you an email to reset your password! use a computer to reset your password.", "ok");
+            });
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 

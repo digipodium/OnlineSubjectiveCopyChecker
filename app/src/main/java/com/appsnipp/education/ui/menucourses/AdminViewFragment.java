@@ -59,9 +59,18 @@ public class AdminViewFragment extends Fragment {
         bind.FileSubjectAdmin.setText(pdf.subject);
         bind.FileTeacherAdmin.setText(pdf.teacher);
         bind.fileNameAdmin.setText(pdf.name);
-        bind.sliderMark.setProgress(Integer.parseInt(pdf.marks));
-        bind.textMark.setText(Integer.parseInt(pdf.marks));
-        new RetrivePDFfromUrl().execute(pdf.url);
+        try {
+            bind.sliderMark.setProgress(Integer.parseInt(pdf.marks));
+            bind.textMark.setText(Integer.parseInt(pdf.marks));
+        } catch (Exception e) {
+            bind.sliderMark.setProgress(0);
+            bind.textMark.setText(pdf.marks);
+        }
+        try {
+            new RetrivePDFfromUrl().execute(pdf.url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         bind.sliderMark.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
