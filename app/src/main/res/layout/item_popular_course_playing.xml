@@ -7,7 +7,7 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/container_search"
+    android:background="@drawable/categorie"
     android:gravity="center_vertical">
 
 
@@ -46,20 +46,35 @@
         android:background="@drawable/result_card"
         android:padding="12dp"
         android:src="@drawable/ic_baseline_cloud_upload_24"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editSubjectName" />
 
     <EditText
         android:id="@+id/editSubjectName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:hint="Enter Subject Name"
         android:textColor="#C2185B"
-        android:textColorHint="#512DA8"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColorHint="#0C0C0C"
         app:layout_constraintEnd_toStartOf="@+id/btnUpload"
         app:layout_constraintStart_toStartOf="@+id/uploadtext"
         app:layout_constraintTop_toBottomOf="@+id/uploadtext" />
+
+    <EditText
+        android:id="@+id/editRollNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="Enter Student roll no"
+        android:inputType="textPersonName"
+        android:textColor="#673AB7"
+        android:textColorHint="#121111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnUpload"
+        app:layout_constraintStart_toStartOf="@+id/editSubjectName"
+        app:layout_constraintTop_toBottomOf="@+id/editSubjectName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

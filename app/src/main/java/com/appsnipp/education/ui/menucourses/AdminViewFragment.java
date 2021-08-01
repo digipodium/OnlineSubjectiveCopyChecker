@@ -55,10 +55,11 @@ public class AdminViewFragment extends Fragment {
         uid = auth.getCurrentUser().getUid();
 
         Pdf pdf = AdminViewFragmentArgs.fromBundle(getArguments()).getPdf();
-        bind.FileDateAdmin.setText(pdf.date);
-        bind.FileSubjectAdmin.setText(pdf.subject);
-        bind.FileTeacherAdmin.setText(pdf.teacher);
-        bind.fileNameAdmin.setText(pdf.name);
+        bind.FileDateAdmin.setText("Date: " + pdf.date);
+        bind.FileSubjectAdmin.setText("Subject: " + pdf.subject);
+        bind.FileTeacherAdmin.setText("Teacher: " + pdf.teacher);
+        bind.fileNameAdmin.setText("File name: " + pdf.name);
+        bind.FileStudentRoll.setText("Student Roll: " + pdf.roll);
         try {
             bind.sliderMark.setProgress(Integer.parseInt(pdf.marks));
             bind.textMark.setText(Integer.parseInt(pdf.marks));

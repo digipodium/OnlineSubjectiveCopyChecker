@@ -28,8 +28,9 @@ public class Pdf implements Parcelable {
     public String marks;
     public boolean isChecked;
     public String subject;
+    public String roll;
 
-    public Pdf(String url, String name, String tid, String teacher, String date, String marks, String subject, boolean isChecked) {
+    public Pdf(String url, String name, String tid, String teacher, String date, String marks, String subject, String roll, boolean isChecked) {
         this.url = url;
         this.name = name;
         this.tid = tid;
@@ -38,6 +39,7 @@ public class Pdf implements Parcelable {
         this.marks = marks;
         this.isChecked = isChecked;
         this.subject = subject;
+        this.roll = roll;
     }
 
     public Pdf() {
@@ -52,6 +54,7 @@ public class Pdf implements Parcelable {
         marks = in.readString();
         isChecked = in.readByte() != 0x00;
         subject = in.readString();
+        roll = in.readString();
     }
 
     @Override
@@ -68,6 +71,7 @@ public class Pdf implements Parcelable {
         dest.writeString(date);
         dest.writeString(marks);
         dest.writeString(subject);
+        dest.writeString(roll);
         dest.writeByte((byte) (isChecked ? 0x01 : 0x00));
     }
 }

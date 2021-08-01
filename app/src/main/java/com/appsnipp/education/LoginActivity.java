@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         binding.login.textPasswordForgot.setOnClickListener(view -> {
-            showForgotDiaglog();
+            showForgotDialog();
         });
         binding.login.cirLoginButton.setOnClickListener(view -> {
             String email = binding.login.editUserEmail.getText().toString().trim();
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void showForgotDiaglog() {
+    private void showForgotDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Have you forgotten your password ");

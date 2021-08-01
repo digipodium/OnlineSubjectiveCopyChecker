@@ -68,6 +68,20 @@
                 android:textColor="@color/dashboard_subtitle"
                 android:textSize="@dimen/d_number_courses" />
 
+
+            <TextView
+                android:id="@+id/FileStudentRoll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/normalPadding"
+                android:layout_marginRight="@dimen/normalPadding"
+                android:fontFamily="@font/bariol_bold"
+                android:text="roll number
+"
+                android:textColor="@color/dashboard_subtitle"
+                android:textSize="@dimen/d_number_courses" />
+
+
             <TextView
                 android:id="@+id/FileDateAdmin"
                 android:layout_width="wrap_content"
@@ -103,7 +117,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sliderMark">
+        app:layout_constraintTop_toBottomOf="@+id/sliderMark"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <com.github.barteksc.pdfviewer.PDFView
             android:id="@+id/pdfView"

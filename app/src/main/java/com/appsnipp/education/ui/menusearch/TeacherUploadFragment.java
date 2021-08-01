@@ -126,10 +126,11 @@ public class TeacherUploadFragment extends Fragment {
                             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                             Date date = new Date();
                             String subject = bind.uploadArea.editSubjectName.getText().toString().toLowerCase();
+                            String roll = bind.uploadArea.editRollNo.getText().toString().toLowerCase();
                             if (subject.length() == 0) {
                                 subject = "N/A";
                             }
-                            Pdf data = new Pdf(uri.toString(), filename, uid, profile.username, formatter.format(date), "N/A", subject, false);
+                            Pdf data = new Pdf(uri.toString(), filename, uid, profile.username, formatter.format(date), "N/A", subject, roll, false);
                             db.collection(Constants.FILES).add(data).addOnSuccessListener(documentReference -> {
                                 Utils.showDialog(getActivity(), "Success", "file successfully uploaded", "ok");
                             }).addOnFailureListener(e -> {
